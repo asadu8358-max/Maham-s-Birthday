@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Maham!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Italianno&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<div class="bg-orb bg-orb--one" aria-hidden="true"></div>
+<div class="bg-orb bg-orb--two" aria-hidden="true"></div>
+
+<main class="stage">
+
+  <p class="eyebrow">a little something for</p>
+
+  <h1 class="name">
+    <span class="name-line">Maham</span>
+    <span class="name-line name-line--gull">Gull</span>
+  </h1>
+
+  <div class="divider" aria-hidden="true">
+    <span class="divider-dot"></span>
+  </div>
+
+  <p class="wish">
+    Happy Birthday, Maham — my favourite person to<br>
+    annoy and protect in equal measure. Stay this bright.
+  </p>
+
+  <button class="celebrate-btn" id="celebrateBtn" aria-pressed="false">
+    <span class="btn-icon btn-icon--note" aria-hidden="true">♫</span>
+    <span class="btn-label">make it rain</span>
+    <span class="btn-icon btn-icon--star" aria-hidden="true">✦</span>
+  </button>
+
+  <p class="song-hint" id="songHint"><span id="songHintText">tap to play your song</span></p>
+
+  <p class="signature">— with love, your brother<br><span class="signature-name">Asad Ullah Khan</span></p>
+
+</main>
+
+<audio id="bdaySong" src="assets/birthday-song.mp3" preload="auto"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
