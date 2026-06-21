@@ -92,6 +92,7 @@ function animate() {
       p.opacity = Math.max(0, p.opacity - 0.02);
     }
 
+  // Draw appropriate asset
     if (p.isBalloon) {
       drawBalloon(p);
     } else {
@@ -124,27 +125,30 @@ song.loop = true;
 function setPlayingUI(isPlaying) {
   btn.classList.toggle('is-playing', isPlaying);
   btn.setAttribute('aria-pressed', String(isPlaying));
-  btnLabel.textContent = isPlaying ? 'playing for you' : 'make it rain';
+  btnLabel.textContent = isPlaying ? 'pause music' : 'make it rain';
   songHint.classList.toggle('is-live', isPlaying);
   songHintText.textContent = isPlaying ? 'playing on repeat for you' : 'tap to play your song';
 }
 
+// FIXED: Clean toggle to handle music playback and pause controls
 btn.addEventListener('click', () => {
-  continuousMode = true;
   celebrate();
 
   if (song.paused) {
+    continuousMode = true;
     song.play().catch(() => {
       songHintText.textContent = 'tap again to start the song';
     });
+  } else {
+    continuousMode = false;
+    song.pause();
   }
 });
 
 song.addEventListener('play', () => setPlayingUI(true));
 song.addEventListener('pause', () => setPlayingUI(false));
 
-// Greet her with a gentle confetti burst on load (audio autoplay is blocked by
-// browsers until she interacts, so the song waits for her first tap)
+// Gentle initial confetti burst on window load
 window.addEventListener('load', () => {
   setTimeout(celebrate, 600);
 });
